@@ -26,7 +26,7 @@
             @foreach($services AS $s)
             <tr class="position-relative border-bottom">
                 <td class="p-2">
-                    <a href="{{ url("/workspace/$s->workspace_title/create-token") }}" class="position-absolute top-0 bottom-0 end-0 start-0"></a>
+                    <a href="{{ route('workspace.edit', $s->id) }}" class="position-absolute top-0 bottom-0 end-0 start-0"></a>
                     {{ $s->workspace_title }}
                 </td>
                 <td class="p-2">

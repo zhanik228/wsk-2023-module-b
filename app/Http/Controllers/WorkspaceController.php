@@ -16,7 +16,7 @@ class WorkspaceController extends Controller
      */
     public function index(Request $request)
     {
-        $serviceUsages = ServiceUsage::where('username', $request->user()->name)->get();
+        $serviceUsages = ServiceUsage::where('user_id', $request->user()->id)->get();
         return view('workspace.workspace')->with('services', $serviceUsages);
     }
 
@@ -69,7 +69,7 @@ class WorkspaceController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return redirect("/workspace/$id/token");
     }
 
     /**

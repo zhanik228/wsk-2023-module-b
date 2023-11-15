@@ -13,16 +13,9 @@
     @csrf
     <h2>Create Token</h2>
     <div class="form-group my-4">
-        <label for="title">Workspace title</label>
-        <input type="text" name="title" id="description" class="form-control" placeholder="token">
+        <label for="title">Token name</label>
+        <input type="text" name="token_name" id="description" class="form-control" placeholder="token name">
         @error('title')
-        <span class="text-danger">{{ $message }}</span>
-        @enderror
-    </div>
-    <div class="form-group my-4">
-        <label for="description">Workspace description</label>
-        <input type="text" name="description" id="description" class="form-control" placeholder="Description">
-        @error('description')
         <span class="text-danger">{{ $message }}</span>
         @enderror
     </div>
@@ -31,7 +24,7 @@
             Cancel
         </a>
         <button type="submit" class="btn btn-primary ">
-            Create Workspace
+            Create Token
         </button>
     </div>
 </form>

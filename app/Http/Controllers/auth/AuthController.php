@@ -35,9 +35,9 @@ class AuthController extends Controller
     {
         $username = $request->username;
         $password = $request->password;
-        
+
         $isAuthenticated = Auth::attempt([
-            'name' => $username, 
+            'name' => $username,
             'password' => $password
         ]);
 
