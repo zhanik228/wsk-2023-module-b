@@ -44,16 +44,15 @@ class WorkspaceController extends Controller
         $length = $end->diffInMilliseconds($current);
 
         $serviceUsages = new ServiceUsage();
-        $serviceUsages->username = $request->user()->name;
+        $serviceUsages->user_id = $request->user()->id;
         $serviceUsages->workspace_title = $request->title;
-        $serviceUsages->api_token_name = 'development';
         $serviceUsages->usage_duration_in_ms = $length;
         $serviceUsages->usage_started_at = now();
         $serviceUsages->service_name = 'Service 2';
         $serviceUsages->service_cost_per_ms = 0.001500;
         $serviceUsages->save();
 
-        return redirect('/workspace/token');
+        return redirect('/workspace');
     }
 
     /**

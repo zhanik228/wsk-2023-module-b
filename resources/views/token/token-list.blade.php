@@ -11,6 +11,9 @@
 <a href="{{ route('workspace.create') }}" class="btn btn-primary m-2 align-self-start">
     Create a token
 </a>
+<a href="{{ route('workspace.quota.index', $workspaceId) }}" class="btn btn-primary m-2 align-self-start">
+    Go to quotas
+</a>
 <table class="my-4 border border-primary rounded">
     <thead class="border-bottom rounded">
     <tr>

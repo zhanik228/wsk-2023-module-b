@@ -2,23 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Token;
+use App\Models\Quota;
 use Illuminate\Http\Request;
 
-class TokenController extends Controller
+class QuotaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index($workspaceId)
     {
-        $tokens = Token::with('workspace')
+        $quotas = Quota::with('quotaLimit')
             ->where('workspace_id', $workspaceId)
             ->get();
 
-        return view('token.token-list')
-            ->with('tokens', $tokens)
-            ->with('workspaceId', $workspaceId);
+        return view('quota.quota-list')->with('quotas', $quotas);
     }
 
     /**
@@ -64,11 +62,8 @@ class TokenController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $workspaceId, string $tokenId)
+    public function destroy(string $id)
     {
-        $token = Token::where('id', $tokenId)
-        ->update(['revoked_at' => now()]);
-
-        return redirect("/workspace/$workspaceId/token");
+        //
     }
 }

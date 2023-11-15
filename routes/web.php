@@ -29,5 +29,6 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::resource('workspace', WorkspaceController::class);
     Route::middleware('count.quotes')->group(function() {
         Route::resource('workspace.token', Tokencontroller::class);
+        Route::resource('workspace.quota', \App\Http\Controllers\QuotaController::class);
     });
 });
